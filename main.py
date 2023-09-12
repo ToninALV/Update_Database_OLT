@@ -6,6 +6,10 @@ hostname = ["BDP-CEN-01-BNG-005","BET-GUA-01-BNG-003","CEM-TLP-01-BNG-009","CLU-
 
 ips = ["177.73.193.38","177.73.193.32","177.73.193.48","177.73.193.11","177.73.193.35","177.73.193.0","177.73.193.3","177.73.193.6","177.73.193.26"]
 
+port = "6422"
+username = "antonio.silva"
+password = "An@13606973659"
+
 def menu ():
     print("""
 (1) BOM DESPACHO
@@ -55,43 +59,49 @@ def get_vlans():
     cevlan_list = []
     pevlan = input("Digite a PEVLAN: ")
     if pevlan.isdigit():
-        print("O valor digitado é um número.")
-
-
-
-
-
-"""def get_vlans():
-    cevlan_list = []
-    pevlan = int(input("Digite a PEVLAN: "))
-    cevlan = input("Digite a CEVLAN: ")
-    cevlan = int
-    if cevlan == int:
-        cevlan_list.append(cevlan)
         pass
     else:
         print("Valor digitado não é válido, Tente Novamente!")
         pass
-    option = str(input("Deseja inserir mais CEVLAN ? (S/N): ")).upper()
-    while option == "S":
-        cevlan = int(input("Digite a CEVLAN: "))
-        if cevlan == int:
-            cevlan_list.append(cevlan)
-        else:
-            print("Valor digitado não é válido. Tente Novamente!")
-            pass
-        option = input("Deseja inserir mais CEVLAN? (S/N): ").upper()
-        
+    while True:
+        option = input("Deseja inserir mais CEVLAN ? (S/N): ").upper()
         if option == "S":
-            pass
+            cevlan = input("Digite a CEVLAN: ")
+            if cevlan.isdigit():
+                cevlan_list.append(cevlan)
+                pass
+            else:
+                print("Opção Inválida, Tente Novamente!")
         elif option == "N":
             break
         else:
-            print("Você digitou uma opção errada, Tente Novamente!!!")
-            
+            print("Opção Inválida, Tente Novamente!")
+            pass
     list_vlans = [pevlan, cevlan_list]
-            
-    return list_vlans"""
 
+    return list_vlans
 
+def conect_equipament(command):
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(host, port=port, username=username, password=password)
+    print("-----CONEXÃO ESTABELECIDA-----")
+    
+    #open_shell = ssh.invoke_shell()
+    #open_shell.send(terminal_lenght)
+    stdin, stdout, stderr = ssh.exec_command(command)
+    stdout = stdout.read().decode('ascii').strip("\n")
+    clientes = stdout
+    
+    #clientes = open_shell.send(command)
+    #clientes = open_shell.recv(65535).decode('utf-8')
+    clientes = str(stdout)
+    
+    
+
+    ssh.close()
+    print("CONEXÃO FINALIZADA")
+    return clientes
+
+menu()
 get_vlans()
