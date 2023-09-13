@@ -13,8 +13,8 @@ password = "AS@@28198@2k22!8*C0r3#"
 #path01 = "C:\Python\Colect_Clients_to_F1A_per_vlan\comando.txt"
 #path02 = "C:\Python\Colect_Clients_to_F1A_per_vlan\clientes.txt" 
 
-path01 = "C:\Python\Update_Database_OLT\comando.txt"
-path02 = "C:\Python\Update_Database_OLT\clientes.txt"
+path01 = "C:\\Python\\Update_Database_OLT\\comando.txt"
+path02 = "C:\\Python\\Update_Database_OLT\\clientes.txt"
 
 try:
     os.remove(path01)
@@ -74,6 +74,13 @@ def get_vlans():
     else:
         print("Valor digitado não é válido, Tente Novamente!")
         pass
+    cevlan = input("Digite a CEVLAN: ")
+    if cevlan.isdigit():
+        cevlan_list.append(cevlan)
+        pass
+    else:
+        print("Valor digitado não é válido, Tente Novamente!")
+        pass
     while True:
         option = input("Deseja inserir mais CEVLAN ? (S/N): ").upper()
         if option == "S":
@@ -92,6 +99,7 @@ def get_vlans():
 
     return list_vlans
 
+#RESOLVER CADA CEVLAN ELE PUXA A FUNÇÃO DE MENU NOVAMENTE#
 def conect_equipament(command):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
