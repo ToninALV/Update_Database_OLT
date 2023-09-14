@@ -185,4 +185,9 @@ def get_clients():
         with open(path03, "a") as arquivo:
             arquivo.write(f'Quantidade total desta busca: {valor_total}\n')
 
+    try:
+        os.remove(path01)
+    except:
+        pass
+
 get_clients()
