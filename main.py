@@ -10,14 +10,17 @@ port = "6422"
 username = "administrator"
 password = "AS@@28198@2k22!8*C0r3#"
 
-#path01 = "C:\Python\Colect_Clients_to_F1A_per_vlan\comando.txt"
-#path02 = "C:\Python\Colect_Clients_to_F1A_per_vlan\clientes.txt" 
+#path01 = "C:\\Python\\Update_Database_OLT\\comando.txt"
+#path02 = "C:\\Python\\Update_Database_OLT\\clientes.txt"
 
-path01 = "C:\\Python\\Update_Database_OLT\\comando.txt"
-path02 = "C:\\Python\\Update_Database_OLT\\clientes.txt"
+path01 = "comando.txt"
+path02 = "clientes.txt"
+path03 = "total.txt"
 
 try:
     os.remove(path01)
+    os.remove(path02)
+    os.remove(path03)
 except:
     pass
 
@@ -155,12 +158,31 @@ def get_clients():
         with open(path02, 'a') as clientes_txt:
             clientes_txt.write(f'\nVLAN {cevlan}\n\n')
         arquivo = open(path01, 'r')
+
+        c = 0
         for line in arquivo:
             if ("User name") in line:
                 pppoe = line.split()
                 pppoe = pppoe[3]
                 with open(path02, 'a') as clientes_txt:
-                    clientes_txt.write(f'{pppoe}\n')       
+                    clientes_txt.write(f'{pppoe}\n')
+                    c += 1  
         i += 1
+
+        with open(path02, 'a') as clientes_txt:
+            clientes_txt.write(f'\nClientes na VLAN {cevlan}: {c}\n\n')
+
+    valor_total = []
+    with open(path02, 'r') as total_clientes:
+        for line in total_clientes:
+            if ("Clientes na VLAN") in line:
+                total = line.split()
+                total = total[4]
+                if total.isdigit():
+                    valor_total.append(int(total))
+
+        valor_total = sum(valor_total)
+        with open(path03, "a") as arquivo:
+            arquivo.write(f'Quantidade total desta busca: {valor_total}\n')
 
 get_clients()
