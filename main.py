@@ -38,31 +38,41 @@ def menu ():
 
     if host == 1:
         host = ips[0]
+        
         print(f"Você selecionou {hostname[0]}!")
     elif host == 2:
         host = ips[1]
+
         print(f"Você selecionou {hostname[1]}!")
     elif host == 3:
         host = ips[2]
+
         print(f"Você selecionou {hostname[2]}")
     elif host == 4:
         host = ips[3]
+
         print(f"Você selecionou {hostname[3]}!")
     elif host == 5:
         host = ips[4]
+
         print(f"Você selecionou {hostname[4]}!")
     elif host == 6:
         host = ips[5]
+
         print(f"Você selecionou {hostname[5]}!")
     elif host == 7:
         host = ips[6]
+
         print(f"Você selecionou {hostname[6]}!")
     elif host == 8:
         host = ips[7]
+
         print(f"Você selecionou {hostname[7]}!")
     elif host == 9:
         host = ips[8]
+
         print(f"Você selecionou {hostname[8]}!")
+
 
     return(host)
 
@@ -100,10 +110,10 @@ def get_vlans():
     return list_vlans
 
 #RESOLVER CADA CEVLAN ELE PUXA A FUNÇÃO DE MENU NOVAMENTE#
-def conect_equipament(command):
+def conect_equipament(command, host):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(menu(), port=port, username=username, password=password)
+    ssh.connect(host, port=port, username=username, password=password)
     print("-----CONEXÃO ESTABELECIDA-----")
     
     #open_shell = ssh.invoke_shell()
@@ -121,6 +131,9 @@ def conect_equipament(command):
     return clientes
 
 def get_clients():
+
+    host = menu()
+    
     list_vlans = get_vlans()
     print(list_vlans)
     pevlan = list_vlans[0]
@@ -134,7 +147,7 @@ def get_clients():
             mmi-mode enable\n
             display access-user pevlan {pevlan} cevlan {cevlan} verbose | include name | no-more\n
         """
-        clientes = conect_equipament(command)
+        clientes = conect_equipament(command, host)
 
         with open(path01, 'w') as arquivo:
             arquivo.write(clientes)

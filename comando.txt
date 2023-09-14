@@ -1,7 +1,7 @@
 
 Info: The max number of VTY users is 21, the number of current VTY users online is 1, and total number of terminal users online is 1.
-      The current login time is 2023-09-13 00:03:10-03:00.
-      The last login time is 2023-09-13 00:03:08-03:00 from 187.109.8.22 through SSH.
+      The current login time is 2023-09-13 23:47:54-03:00.
+      The last login time is 2023-09-13 23:47:53-03:00 from 187.109.8.22 through SSH.
 <IRP-CAN-01-BNG-005>
 <IRP-CAN-01-BNG-005>
 <IRP-CAN-01-BNG-005>
