@@ -1,0 +1,73 @@
+
+VLAN 111
+
+
+Clientes na VLAN 111: 0
+
+
+VLAN 112
+
+mauritania
+giliamachado
+adrianamalvino@sempre.network
+alison119@sempre.network
+valdirrafael4044@sempre.network
+
+Clientes na VLAN 112: 5
+
+
+VLAN 122
+
+patric
+iran122@sempre.network
+armadeira58@sempre.network
+rildo02
+renatomartins
+noeme@sempre.network
+apdores
+mariadas1061@sempre.network
+mnetsilvanasilva628
+noelsilva0090@sempre.network
+adelaidebernardes2055@sempre.network
+
+Clientes na VLAN 122: 11
+
+
+VLAN 131
+
+adrianadutra
+deavelar
+cooxupe
+raffael00@sempre.network
+mnetmariaborges653
+neuzinha
+mwjoser009
+mnetjucimarsilva
+renatobotelho@sempre.network
+
+Clientes na VLAN 131: 9
+
+
+VLAN 132
+
+danielbraga322
+mwgisele127
+helenascherer
+thalitalage
+simeao
+marlucicarvalho
+
+Clientes na VLAN 132: 6
+
+
+VLAN 141
+
+dmonteiro
+elianamarcal
+helianada0093@sempre.network
+custodio450@sempre.network
+lazara02
+mariadas0000@sempre.network
+
+Clientes na VLAN 141: 6
+

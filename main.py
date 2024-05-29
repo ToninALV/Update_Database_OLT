@@ -6,8 +6,8 @@ hostname = ["BDP-CEN-01-BNG-005","BET-GUA-01-BNG-003","CEM-TLP-01-BNG-009","DVL-
 ips = ["177.73.193.38","177.73.193.32","177.73.193.48","177.73.193.11","177.73.193.35","177.73.193.0","177.73.193.3","177.73.193.6","177.73.193.26"]
 
 port = "6422"
-username = "administrator"
-password = "AS@@28198@2k22!8*C0r3#"
+username = "antonio.silva"
+password = "An@13606973659"
 
 #path01 = "C:\\Python\\Update_Database_OLT\\comando.txt"
 #path02 = "C:\\Python\\Update_Database_OLT\\clientes.txt"
